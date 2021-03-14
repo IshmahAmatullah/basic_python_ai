@@ -1,3 +1,3 @@
-x = 2,5
+x = 2.5
 y = int(x)
 print(y)
