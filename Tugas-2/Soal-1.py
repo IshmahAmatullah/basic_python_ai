@@ -2,7 +2,8 @@ import sys
 
 contacts_name = []
 contacts_phone = []
-y = 0
+
+print("Selamat Datang!")
 
 def show_menu():
     print("------Menu------")
@@ -27,11 +28,10 @@ def show_contact():
     if(len(contacts_name) <= 0):
         print("Tidak ada data!")
     else:
+        print("Daftar Kontak:")
         for indeks in range(len(contacts_name)):
-            print("[%d] %s" % (indeks+1, contacts_name[indeks]))
-            for y in range(len(contacts_phone)):
-                print("--->", contacts_phone[y])
-                y += 1
+            print("[%d] %s %s" % (indeks+1, "Nama       :", contacts_name[indeks]))
+            print("    No Telepon :", contacts_phone[indeks])
 
 def create_contact():
     nama = input("Nama : ")
