@@ -1,0 +1,12 @@
+AutomaticEmails:
+
+Get Input [email] from user
+email = input()
+
+Hasil Input User dimasukkan ke dalam file receiver_list.txt
+receiver = open(D:\\File Ishmah\\[Course]\\basic_python_ai\\receiver_list.txt, "w")
+
+Didalam email ada:
+1. Subject
+2. Isi Email (Opening, Information, Closing)
+3. Lampiran (attachment : Gambar, File)
