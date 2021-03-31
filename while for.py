@@ -3,10 +3,10 @@ while i < 6:
     print(i)
     i += 1
 
-do{
+# do{
 
-}
-while()
+# }
+# while()
 
 for i in range(5):
     if i == 3:
