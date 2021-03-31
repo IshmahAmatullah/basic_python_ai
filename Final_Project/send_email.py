@@ -84,18 +84,11 @@ part3.add_header("Content-Disposition", "pdf_attachment; filename= "+filename)
 msg.attach(part3)
 text = msg.as_string()
 
-#membuat objek SMTP : Server
-#server = smtplib.SMTP(host="host_adress",port=your_port)
-server = smtplib.SMTP('smtp.gmail.com',587)
-server.starttls()
-#log in credentials for sending the mail
-server.login(pengirim, pwd)
-
-#send the message via the server
-server.sendmail(pengirim, penerima, text)
-
-#terminate the SMTP session and close the connection
-server.quit()
-
-#notification
-# print("successfully sent email to %s:" %penerima)
+for indeks in range(len(penerima)):
+  msg()
+  server = smtplib.SMTP('smtp.gmail.com',587) #membuat objek SMTP : Server 
+  server.starttls() #server = smtplib.SMTP(host="host_adress",port=your_port)
+  server.login(pengirim, pwd) #log in credentials for sending the mail
+  server.sendmail(pengirim, penerima[indeks], text) #send the message via the server
+  server.quit() #terminate the SMTP session and close the connection
+  print("successfully sent email to %s:" %penerima[indeks]) #notification
