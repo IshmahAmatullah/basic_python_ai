@@ -85,7 +85,6 @@ msg.attach(part3)
 text = msg.as_string()
 
 for indeks in range(len(penerima)):
-  msg()
   server = smtplib.SMTP('smtp.gmail.com',587) #membuat objek SMTP : Server 
   server.starttls() #server = smtplib.SMTP(host="host_adress",port=your_port)
   server.login(pengirim, pwd) #log in credentials for sending the mail
