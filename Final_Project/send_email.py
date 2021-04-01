@@ -1,6 +1,7 @@
 #Reference 1 = github samlopezf "send_email.py"
 #Reference 2 = blog.mailtrap.io "how to send an email in Python"
 #Reference 3 = stack overflow https://stackoverflow.com/questions/30823683/python-sending-email-to-multiple-recipients
+#Reference 4 = QA Stack https://qastack.id/programming/8856117/how-to-send-email-to-multiple-recipients-using-python-smtplib
 
 #import necessary packages
 import smtplib
@@ -16,7 +17,7 @@ pengirim = input("Pengirim email : ")
 pwd = input("Password : ")
 #2 penerima email
 with open("D:\\File Ishmah\\[Course]\\basic_python_ai\\Final_Project\\receiver_list.txt") as f:
-    penerima = [line.rstrip() for line in f]
+  penerima = f.read().splitlines()
 #3 subjek email
 subjek = "Reminder Pengumpulan Final Project Basic Python AI Batch #5"
 
@@ -24,7 +25,7 @@ subjek = "Reminder Pengumpulan Final Project Basic Python AI Batch #5"
 msg = MIMEMultipart()
 #add relevant header
 msg["From"] = pengirim
-msg["To"] = penerima
+msg["To"] = ','.join(penerima)
 msg["Subject"] = subjek
 
 #add text 
