@@ -10,20 +10,13 @@ from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
 from email import encoders
 
-#definisi fungsi penerima
-def getreceiver(receiver_list):
-  receiver = []
-  a = open("D:\\File Ishmah\\[Course]\\basic_python_ai\\Final_Project\\receiver_list.txt", "r")
-  for line in a:
-    receiver.append(line)
-  return receiver
-
 #set up the parameters of the message
 #1 pengirim email dan passwordnya
 pengirim = input("Pengirim email : ")
 pwd = input("Password : ")
 #2 penerima email
-penerima = getreceiver("receiver_list.txt")
+with open("D:\\File Ishmah\\[Course]\\basic_python_ai\\Final_Project\\receiver_list.txt") as f:
+    penerima = [line.rstrip() for line in f]
 #3 subjek email
 subjek = "Reminder Pengumpulan Final Project Basic Python AI Batch #5"
 
@@ -82,12 +75,11 @@ encoders.encode_base64(part3)
 part3.add_header("Content-Disposition", "pdf_attachment; filename= "+filename)
 #add attachment to your message and convert it to string
 msg.attach(part3)
-text = msg.as_string()
 
 for indeks in range(len(penerima)):
   server = smtplib.SMTP('smtp.gmail.com',587) #membuat objek SMTP : Server 
   server.starttls() #server = smtplib.SMTP(host="host_adress",port=your_port)
   server.login(pengirim, pwd) #log in credentials for sending the mail
-  server.sendmail(pengirim, penerima[indeks], text) #send the message via the server
+  server.sendmail(pengirim, penerima[indeks], msg.as_string()) #send the message via the server
   server.quit() #terminate the SMTP session and close the connection
   print("successfully sent email to %s:" %penerima[indeks]) #notification
