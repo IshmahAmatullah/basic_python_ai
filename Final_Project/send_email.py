@@ -62,11 +62,10 @@ image.add_header("Content-ID", "<MailIconImage>")
 msg.attach(image)
 
 # msg.attach(MIMEImage(open().read()))
-
 #attachment document to message body
-filename = "D:\\File Ishmah\\[Course]\\basic_python_ai\\Final_Project\\Final Project - Basic Python.pdf"
+filename = "Final Project - Basic Python.pdf"
 #open PDF file in binary mode
-pdf_attachment = open(filename, "rb")
+pdf_attachment = open("D:\\File Ishmah\\[Course]\\basic_python_ai\\Final_Project\\Final Project - Basic Python.pdf", "rb")
 #the content type "application/octet-stream" means that a MIME attachment is a binary
 part3 = MIMEBase("application", "octet-stream")
 part3.set_payload((pdf_attachment).read())
